@@ -1,0 +1,98 @@
+/* prangworld.de – schlichtes Stylesheet, keine externen Abhängigkeiten */
+@font-face { font-family: "Sora"; font-weight: 400; font-display: swap; src: url("fonts/Sora-400.woff2") format("woff2"); }
+@font-face { font-family: "Sora"; font-weight: 600; font-display: swap; src: url("fonts/Sora-600.woff2") format("woff2"); }
+@font-face { font-family: "Sora"; font-weight: 800; font-display: swap; src: url("fonts/Sora-800.woff2") format("woff2"); }
+
+:root {
+  --navy: #1a2f5c;
+  --blue: #2b7fd6;
+  --ink: #1a2f5c;
+  --ink-2: #5a6784;
+  --ground: #f6f8fc;
+  --card: #ffffff;
+  --line: #dde3ee;
+  --accent: #2b7fd6;
+  --focus: #e0961a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #eef1f7;
+    --ink-2: #a2acc0;
+    --ground: #0f1521;
+    --card: #171f30;
+    --line: #2a3448;
+    --accent: #7fb8ee;
+  }
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light dark; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* Kopf */
+.site-head { padding: 28px 0 8px; }
+.site-head a { display: inline-block; line-height: 0; }
+.logo { width: min(100%, 420px); height: auto; }
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .logo-light { display: none; }
+  .logo-dark { display: block; }
+}
+
+/* Startseite */
+.hero { padding: 48px 0 40px; }
+.hero h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; margin: 0 0 14px; text-wrap: balance; }
+.hero h1 span { color: var(--accent); }
+.hero p.lede { font-size: 18px; color: var(--ink-2); margin: 0 0 32px; max-width: 56ch; }
+.badge { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 18px; }
+.badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--focus); }
+
+.areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 0 0 40px; padding: 0; list-style: none; }
+.areas li { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; }
+.areas b { display: block; font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+.areas span { color: var(--ink-2); font-size: 14.5px; }
+
+.contact { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+.btn.primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+@media (prefers-color-scheme: dark) { .btn.primary { background: var(--blue); border-color: var(--blue); } }
+.btn svg { width: 18px; height: 18px; }
+
+/* Textseiten */
+.page { padding: 24px 0 40px; }
+.page h1 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin: 0 0 8px; }
+.page h2 { font-size: 19px; font-weight: 800; margin: 32px 0 8px; }
+.page h3 { font-size: 16px; font-weight: 600; margin: 22px 0 6px; }
+.page p, .page li { max-width: 68ch; }
+.page .meta { color: var(--ink-2); font-size: 14px; margin: 0 0 24px; }
+.page address { font-style: normal; }
+.placeholder { background: #fff3cd; color: #6b4e00; padding: 0 4px; border-radius: 3px; }
+@media (prefers-color-scheme: dark) { .placeholder { background: #4a3a10; color: #ffe08a; } }
+
+/* Fuß */
+.site-foot { border-top: 1px solid var(--line); margin-top: 24px; padding: 22px 0 40px; font-size: 13.5px; color: var(--ink-2); }
+.site-foot nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 10px; }
+.site-foot nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.site-foot nav a:hover { text-decoration: underline; }
+.site-foot p { margin: 6px 0 0; max-width: 72ch; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * { animation: rise .5s ease-out both; }
+  .hero > *:nth-child(2) { animation-delay: .06s; }
+  .hero > *:nth-child(3) { animation-delay: .12s; }
+  .hero > *:nth-child(4) { animation-delay: .18s; }
+  .hero > *:nth-child(5) { animation-delay: .24s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}

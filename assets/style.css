@@ -107,6 +107,26 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline
 .news .hint { color: var(--ink-2); font-size: 15px; }
 .news .features { margin-bottom: 8px; }
 
+/* Vitrinen im Detail */
+.produkte { padding: 8px 0 24px; border-top: 1px solid var(--line); }
+.produkte h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 12px; text-wrap: balance; }
+.produkte h2 span { color: var(--accent); }
+.produkte .lede { font-size: 17px; color: var(--ink-2); margin: 0 0 8px; max-width: 58ch; }
+.produkt { margin: 32px 0 0; }
+.produkt h3 { font-size: 19px; font-weight: 800; margin: 0 0 12px; }
+.produkt p { max-width: 68ch; }
+.produkt .hint { color: var(--ink-2); font-size: 15px; }
+.produkt em, .news em { font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin-left: 6px; white-space: nowrap; }
+.fotos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; align-items: start; margin: 0 0 16px; }
+.fotos.drei { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.fotos.einzeln { grid-template-columns: minmax(0, 420px); }
+.fotos figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.fotos img { display: block; width: 100%; height: auto; }
+.fotos figcaption { padding: 10px 14px 12px; color: var(--ink-2); font-size: 14px; }
+.punkte { margin: 0 0 14px; padding: 0 0 0 20px; max-width: 68ch; }
+.punkte li { margin: 0 0 8px; }
+.produkt.soon { padding: 4px 0 0; }
+
 /* Globi & Globine */
 .showcase { padding: 8px 0 24px; border-top: 1px solid var(--line); }
 .showcase h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 12px; text-wrap: balance; }
